@@ -13,7 +13,11 @@ extension String: LocalizedError {
     }
 }
 
-class DownloadManager {
+protocol DownloadManageable {
+    func availableFiles() async throws -> [DownloadFile]
+}
+
+class DownloadManager: DownloadManageable {
     func availableFiles() async throws -> [DownloadFile] {
         guard let url = URL(string: "https://jam-rest.herokuapp.com/files/list") else {
             throw "Could not create the URL."
@@ -29,5 +33,18 @@ class DownloadManager {
             throw "The server response was not recognized."
         }
         return list
+    }
+}
+
+
+class DummyDownloadManager: DownloadManageable {
+    func availableFiles() async throws -> [DownloadFile] {
+        let dummyFiles = [
+            DownloadFile(name: "DSC_7470.jpg", size: 2045041, date: Date()),
+            DownloadFile(name: "DSC_7482.jpg", size: 1826072, date: Date()),
+            DownloadFile(name: "DSC_7493.jpg", size: 2109604, date: Date()),
+            DownloadFile(name: "DSC_7511.jpg", size: 1781713, date: Date())
+        ]
+        return dummyFiles
     }
 }

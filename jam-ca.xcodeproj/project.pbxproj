@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E48C3C727E091B800254456 /* Effect+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E48C3C627E091B800254456 /* Effect+.swift */; };
 		8ECC9E3D27DF2A8D0059E9A4 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECC9E3C27DF2A8D0059E9A4 /* Tests_iOS.swift */; };
 		8ECC9E3F27DF2A8D0059E9A4 /* Tests_iOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECC9E3E27DF2A8D0059E9A4 /* Tests_iOSLaunchTests.swift */; };
 		8ECC9E4C27DF2A8D0059E9A4 /* AppMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECC9E2427DF2A8D0059E9A4 /* AppMain.swift */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8E48C3C627E091B800254456 /* Effect+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Effect+.swift"; sourceTree = "<group>"; };
 		8ECC9E2427DF2A8D0059E9A4 /* AppMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMain.swift; sourceTree = "<group>"; };
 		8ECC9E2627DF2A8D0059E9A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8ECC9E2B27DF2A8D0059E9A4 /* jam-ca.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "jam-ca.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,6 +92,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8E48C3C527E0919E00254456 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8E48C3C627E091B800254456 /* Effect+.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		8ECC9E1E27DF2A8D0059E9A4 = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +110,7 @@
 				8ECC9E6627DF2BC00059E9A4 /* Repository */,
 				8ECC9E6527DF2BAF0059E9A4 /* User */,
 				8ECC9E7F27DF2D3F0059E9A4 /* Gallery */,
+				8E48C3C527E0919E00254456 /* Extensions */,
 				8ECC9E3B27DF2A8D0059E9A4 /* Tests iOS */,
 				8ECC9E2C27DF2A8D0059E9A4 /* Products */,
 			);
@@ -300,6 +311,7 @@
 			files = (
 				8ECC9E6C27DF2C710059E9A4 /* SystemEnvironment.swift in Sources */,
 				8ECC9E6A27DF2C1C0059E9A4 /* RootFeature.swift in Sources */,
+				8E48C3C727E091B800254456 /* Effect+.swift in Sources */,
 				8ECC9E7A27DF2D160059E9A4 /* RepositoryView.swift in Sources */,
 				8ECC9E8A27DF4A1F0059E9A4 /* DownloadInfo.swift in Sources */,
 				8ECC9E7027DF2CA20059E9A4 /* UserFeature.swift in Sources */,

@@ -39,3 +39,15 @@ struct GalleryView: View {
         .background(Color("indigo").edgesIgnoringSafeArea([.top, .leading, .trailing]))
     }
 }
+
+struct GalleryView_Previews: PreviewProvider {
+    static var previews: some View {
+        return GalleryView(
+            store: Store(
+                initialState: GalleryState(),
+                reducer: galleryReducer,
+                environment: .dev(environment: GalleryEnvironment(downloadManager: DummyDownloadManager()))
+            )
+        )
+    }
+}
