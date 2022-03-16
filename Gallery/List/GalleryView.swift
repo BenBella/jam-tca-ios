@@ -15,28 +15,32 @@ struct GalleryView: View {
         NavigationView {
             WithViewStore(self.store) { viewStore in
                 List {
-                    if viewStore.files.isEmpty {
-                        ProgressView().padding()
-                    }
-                    ForEach(viewStore.files) { file in
-                        NavigationLink(
-                            destination: IfLetStore(
-                                self.store.scope(
-                                    state: \.selection?.value,
-                                    action: GalleryAction.galleryDetail
-                                ),
-                                then: GalleryDetailView.init(store:),
-                                else: ProgressView.init
-                            ),
-                            tag: file.id,
-                            selection: viewStore.binding(
-                                get: \.selection?.id,
-                                send: GalleryAction.setNavigation(selection:)
-                            )
-                        ) {
-                            Text(file.name)
+                    Section(content: {
+                        if viewStore.files.isEmpty {
+                            ProgressView().padding()
                         }
-                    }
+                        ForEach(viewStore.files) { file in
+                            NavigationLink(
+                                destination: IfLetStore(
+                                    self.store.scope(
+                                        state: \.selection?.value,
+                                        action: GalleryAction.galleryDetail
+                                    ),
+                                    then: GalleryDetailView.init(store:),
+                                    else: ProgressView.init
+                                ),
+                                tag: file.id,
+                                selection: viewStore.binding(
+                                    get: \.selection?.id,
+                                    send: GalleryAction.setNavigation(selection:)
+                                )
+                            ) {
+                                Text(file.name)
+                            }
+                        }
+                    }, footer: {
+                        Text(viewStore.status)
+                    })
                 }
                 .onAppear {
                     viewStore.send(.onAppear)

@@ -14,10 +14,23 @@ extension String: LocalizedError {
 }
 
 protocol DownloadManageable {
+    func status() async throws -> String
     func availableFiles() async throws -> [DownloadFile]
 }
 
 class DownloadManager: DownloadManageable {
+    
+    func status() async throws -> String {
+        guard let url = URL(string: "https://jam-rest.herokuapp.com/files/status") else {
+            throw "Could not create the URL."
+        }
+        let (data, response) = try await URLSession.shared.data(from: url, delegate: nil)
+        guard (response as? HTTPURLResponse)?.statusCode == 200 else {
+            throw "The server responded with an error."
+        }
+        return String(decoding: data, as: UTF8.self)
+    }
+    
     func availableFiles() async throws -> [DownloadFile] {
         guard let url = URL(string: "https://jam-rest.herokuapp.com/files/list") else {
             throw "Could not create the URL."
@@ -37,6 +50,11 @@ class DownloadManager: DownloadManageable {
 }
 
 class DummyDownloadManager: DownloadManageable {
+    
+    func status() async throws -> String {
+        return "Using 32% of available space, 123 duplicate files."
+    }
+    
     func availableFiles() async throws -> [DownloadFile] {
         let dummyFiles = [
             DownloadFile(name: "DSC_7470.jpg", size: 2045041, date: Date()),
