@@ -36,7 +36,6 @@ class DownloadManager: DownloadManageable {
     }
 }
 
-
 class DummyDownloadManager: DownloadManageable {
     func availableFiles() async throws -> [DownloadFile] {
         let dummyFiles = [

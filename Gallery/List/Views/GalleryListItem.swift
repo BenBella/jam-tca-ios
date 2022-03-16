@@ -1,5 +1,5 @@
 //
-//  FileListItem.swift
+//  GalleryListItem.swift
 //  jam-ca (iOS)
 //
 //  Created by Lukas Andrlik on 14.03.2022.
@@ -21,7 +21,7 @@ let dateFormatter: DateFormatter = {
     return formatter
 }()
 
-struct FileListItem: View {
+struct GalleryListItem: View {
     let file: DownloadFile
     var body: some View {
         VStack(spacing: 8) {

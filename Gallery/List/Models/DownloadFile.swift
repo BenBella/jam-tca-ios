@@ -8,9 +8,16 @@
 import Foundation
 
 struct DownloadFile: Codable, Identifiable, Equatable {
-    var id: String { return name }
+    var id: UUID = UUID()
     let name: String
     let size: Int
     let date: Date
+    
+    enum CodingKeys: String, CodingKey {
+         case name
+         case size
+         case date
+    }
+    
     static let empty = DownloadFile(name: "", size: 0, date: Date())
 }
