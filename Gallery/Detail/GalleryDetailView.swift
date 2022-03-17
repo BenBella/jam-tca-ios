@@ -10,57 +10,27 @@ import ComposableArchitecture
 
 struct GalleryDetailView: View {
     let store: Store<GelleryDetailState, GelleryDetailAction>
-    let isDownloading: Bool = false
-    let isDownloadActive: Bool = false
-    
-    var body: some View {
-        WithViewStore(self.store) { viewStore in
-        Section(content: {
-            VStack(alignment: .leading) {
-                HStack(spacing: 8) {
-                    if isDownloadActive {
-                        ProgressView()
-                    }
-                    Text("File.name")
-                        .font(.title3)
-                }
-                .padding(.leading, 8)
-                Text("From byte count")
-                    .font(.body)
-                    .foregroundColor(Color.indigo)
-                    .padding(.leading, 8)
-                if !isDownloading {
-                    HStack {
-                        Button(action: {
-                            viewStore.send(.closeDetail)
-                        }) {
-                            Image(systemName: "arrow.down.app")
-                            Text("Silver")
-                        }
-                        .tint(Color.teal)
-                        Button(action: {}) {
-                            Image(systemName: "arrow.down.app.fill")
-                            Text("Gold")
-                        }
-                        .tint(Color.pink)
-                        Button(action: {}) {
-                            Image(systemName: "dial.max.fill")
-                            Text("Cloud 9")
-                        }
-                        .buttonStyle(.borderedProminent)
-                        .tint(Color.purple)
-                    }
-                    .buttonStyle(.bordered)
-                    .font(.subheadline)
-                }
+
+      var body: some View {
+          WithViewStore(self.store) { viewStore in
+              List {
+                  // Show the details of the selected file and download buttons.
+                  ImageDetailsView(store: self.store)
+                  if !viewStore.downloads.isEmpty {
+                      // Show progress for any ongoing downloads.
+                      DownloadsView(downloads: viewStore.downloads)
+                  }
+                  if let fileData = viewStore.fileData {
+                      // Show a preview of the file if it's a valid image.
+                      ImagePreview(fileData: fileData)
+                  }
             }
-    }, header: {
-        Label(" Download", systemImage: "arrow.down.app")
-            .font(.custom("SerreriaSobria", size: 27))
-            .foregroundColor(Color.accentColor)
-            .padding(.bottom, 20)
-        })
-    }
+            .onAppear {
+                viewStore.send(.onAppear)
+            }
+            .onDisappear {
+                viewStore.send(.onDisappear)
+            }
+        }
     }
 }
-

@@ -50,7 +50,7 @@ let galleryReducer =
     .pullback(
         state: \GalleryState.selection,
         action: /GalleryAction.galleryDetail,
-        environment: { _ in .live(environment: GalleryDetailEnvironment()) }
+        environment: { env in .live(environment: GalleryDetailEnvironment(downloadManager: env.downloadManager)) }
     )
     .combined(with:
         Reducer<GalleryState, GalleryAction, SystemEnvironment<GalleryEnvironment>> { state, action, environment in
@@ -101,7 +101,8 @@ let galleryReducer =
                 }
                 return .none
             case let .setNavigation(selection: .some(id)):
-                state.selection = Identified(GelleryDetailState(), id: id)
+                guard let file = state.files.filter({ $0.id == id }).first else { return .none }
+                state.selection = Identified(GelleryDetailState(file: file), id: id)
                 return .none
             case .setNavigation(selection: .none):
                 state.selection = nil
@@ -110,6 +111,10 @@ let galleryReducer =
                 switch detailAction {
                 case .closeDetail:
                     state.selection = nil
+                case .onDisappear:
+                    environment.downloadManager.reset()
+                default:
+                    break
                 }
                 return .none
             case .onDisappear:

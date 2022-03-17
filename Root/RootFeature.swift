@@ -34,6 +34,6 @@ let rootReducer = Reducer<RootState, RootAction, SystemEnvironment<RootEnvironme
     galleryReducer.pullback(
         state: \.galleryState,
         action: /RootAction.galleryAction,
-        environment: { _ in .live(environment: GalleryEnvironment(downloadManager: DownloadManager())) })
+        environment: { _ in .live(environment: GalleryEnvironment(downloadManager: DownloadManager.shared)) })
 )
 // swiftlint:enable trailing_closure

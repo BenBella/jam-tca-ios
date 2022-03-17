@@ -12,6 +12,7 @@
 		8E3A668827E0EF8400C02DF7 /* ImagePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3A668727E0EF8400C02DF7 /* ImagePreview.swift */; };
 		8E3A668A27E0EF9100C02DF7 /* DownloadsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3A668927E0EF9100C02DF7 /* DownloadsView.swift */; };
 		8E48C3C727E091B800254456 /* Effect+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E48C3C627E091B800254456 /* Effect+.swift */; };
+		8EAEB68127E323BC00F2141D /* ImageDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAEB68027E323BC00F2141D /* ImageDetailsView.swift */; };
 		8ECC9E3D27DF2A8D0059E9A4 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECC9E3C27DF2A8D0059E9A4 /* Tests_iOS.swift */; };
 		8ECC9E3F27DF2A8D0059E9A4 /* Tests_iOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECC9E3E27DF2A8D0059E9A4 /* Tests_iOSLaunchTests.swift */; };
 		8ECC9E4C27DF2A8D0059E9A4 /* AppMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECC9E2427DF2A8D0059E9A4 /* AppMain.swift */; };
@@ -54,6 +55,7 @@
 		8E3A668727E0EF8400C02DF7 /* ImagePreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreview.swift; sourceTree = "<group>"; };
 		8E3A668927E0EF9100C02DF7 /* DownloadsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadsView.swift; sourceTree = "<group>"; };
 		8E48C3C627E091B800254456 /* Effect+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Effect+.swift"; sourceTree = "<group>"; };
+		8EAEB68027E323BC00F2141D /* ImageDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailsView.swift; sourceTree = "<group>"; };
 		8ECC9E2427DF2A8D0059E9A4 /* AppMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMain.swift; sourceTree = "<group>"; };
 		8ECC9E2627DF2A8D0059E9A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8ECC9E2B27DF2A8D0059E9A4 /* jam-tca.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "jam-tca.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,6 +129,7 @@
 			children = (
 				8E3A668727E0EF8400C02DF7 /* ImagePreview.swift */,
 				8E3A668927E0EF9100C02DF7 /* DownloadsView.swift */,
+				8EAEB68027E323BC00F2141D /* ImageDetailsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				8ECC9E8A27DF4A1F0059E9A4 /* DownloadInfo.swift in Sources */,
 				8ECC9E7027DF2CA20059E9A4 /* UserFeature.swift in Sources */,
 				8ECC9E7227DF2CB30059E9A4 /* UserView.swift in Sources */,
+				8EAEB68127E323BC00F2141D /* ImageDetailsView.swift in Sources */,
 				8ECC9E7E27DF2D330059E9A4 /* RepositoryModel.swift in Sources */,
 				8ECC9E8527DF2D8A0059E9A4 /* GalleryEffects.swift in Sources */,
 				8ECC9E9127DF78A70059E9A4 /* GalleryListItem.swift in Sources */,
